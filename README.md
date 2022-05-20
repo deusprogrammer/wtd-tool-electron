@@ -1,21 +1,8 @@
-# Streamcrabs
+# WTD Tool
 
-## What is Streamcrabs?
+## What is WTD Tool?
 
-Streamcrabs is an open source desktop Twitch Bot with functionality similar to Streamlabs.  More functionality will be added as we go on.
-
-## Current Features
-
-* Animated Raid/Subscription/Cheer Alerts with chroma keying.
-* Customizable dynamic alerts that use a variable to change how many sprites appear on the screen.
-* Customizable commands that can play sounds and videos.
-* Sound and Video channel point redemption rewards.
-
-## Planned Features
-
-* Bot writeable files that can be used with OBS/XSplit for things like latest follower/latest sub/etc.
-* More dynamic alert templates that can be customized.
-* Other widgets like tip jars.
+WTD Tool is a tool for creating clips for Rifftrax the Game and What the Dub.
 
 ## How to Test Development
 
