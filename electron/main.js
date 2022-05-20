@@ -43,16 +43,10 @@ const createWindow = async () => {
         },
     });
 
-    // and load the index.html of the app.
-    // win.loadFile("index.html");
-    if (!config.rifftraxDirectory || !config.whatTheDubDirectory) {
-        win.loadURL(`${ isDev ? 'http://localhost:3000' : REACT_APP_LOCATION}/config` );
-    } else {
-        win.loadURL(
-            isDev ? 'http://localhost:3000' :
-            REACT_APP_LOCATION
-        );
-    }
+    win.loadURL(
+        isDev ? 'http://localhost:3000' :
+        REACT_APP_LOCATION
+    );
 
     protocol.interceptFileProtocol('app', function (request, callback) {
         let url = request.url.substr(6);
@@ -78,67 +72,68 @@ const createWindow = async () => {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
-    const template = [
-        {
-            label: 'Electron',
-            submenu: [
-                {
-                    label: 'About',
-                    click: () => {
-                        win.loadURL(`${isDev ? 'http://localhost:3000' : REACT_APP_LOCATION}/about`);
-                    }
-                },
-                {
-                    label: 'Close',
-                    click: () => {
-                        app.quit();
-                    }
-                }
-            ]
-        },
-        {
-            label: 'Clips',
-            submenu: [
-                {
-                    label: 'New',
-                    submenu: [
-                        {
-                            label: 'Rifftrax Clip',
-                            click: () => {
-                                win.loadURL(`${isDev ? 'http://localhost:3000' : REACT_APP_LOCATION}/create/rifftrax`);
-                            }
-                        },
-                        {
-                            label: 'What The Dub Clip',
-                            click: () => {
-                                win.loadURL(`${isDev ? 'http://localhost:3000' : REACT_APP_LOCATION}/create/whatthedub`);
-                            }
-                        }
-                    ]
-                },
-                {
-                    label: 'View Clips',
-                    click: () => {
-                        win.loadURL(`${isDev ? 'http://localhost:3000' : REACT_APP_LOCATION}/videos`);
-                    }
-                }
-           ]
-        },
-        {
-            label: 'Config',
-            submenu: [
-                {
-                    label: 'Game Directory Setup',
-                    click: () => {
-                        win.loadURL(`${isDev ? 'http://localhost:3000' : REACT_APP_LOCATION}/config`);
-                    }
-                }
-            ]
-        }
-    ];
+    // const template = [
+    //     {
+    //         label: 'Electron',
+    //         submenu: [
+    //             {
+    //                 label: 'About',
+    //                 click: () => {
+    //                     win.webContents.send("NAVIGATE", "/about");
+    //                     //win.loadURL(`${isDev ? 'http://localhost:3000' : REACT_APP_LOCATION}/about`);
+    //                 }
+    //             },
+    //             {
+    //                 label: 'Close',
+    //                 click: () => {
+    //                     app.quit();
+    //                 }
+    //             }
+    //         ]
+    //     },
+    //     {
+    //         label: 'Clips',
+    //         submenu: [
+    //             {
+    //                 label: 'New',
+    //                 submenu: [
+    //                     {
+    //                         label: 'Rifftrax Clip',
+    //                         click: () => {
+    //                             win.loadURL(`${isDev ? 'http://localhost:3000' : REACT_APP_LOCATION}/create/rifftrax`);
+    //                         }
+    //                     },
+    //                     {
+    //                         label: 'What The Dub Clip',
+    //                         click: () => {
+    //                             win.loadURL(`${isDev ? 'http://localhost:3000' : REACT_APP_LOCATION}/create/whatthedub`);
+    //                         }
+    //                     }
+    //                 ]
+    //             },
+    //             {
+    //                 label: 'View Clips',
+    //                 click: () => {
+    //                     win.loadURL(`${isDev ? 'http://localhost:3000' : REACT_APP_LOCATION}/videos`);
+    //                 }
+    //             }
+    //        ]
+    //     },
+    //     {
+    //         label: 'Config',
+    //         submenu: [
+    //             {
+    //                 label: 'Game Directory Setup',
+    //                 click: () => {
+    //                     win.loadURL(`${isDev ? 'http://localhost:3000' : REACT_APP_LOCATION}/config`);
+    //                 }
+    //             }
+    //         ]
+    //     }
+    // ];
 
-    const menu = Menu.buildFromTemplate(template);
-    Menu.setApplicationMenu(menu);
+    // const menu = Menu.buildFromTemplate(template);
+    // Menu.setApplicationMenu(menu);
 
     // Create window
     createWindow();

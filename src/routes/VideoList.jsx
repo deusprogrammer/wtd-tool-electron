@@ -48,8 +48,10 @@ let VideoList = () => {
         <div>
             <h3>Video List</h3>
             <h4>Global Actions</h4>
-                <button onClick={() => {toggleAllFiles(true)}}>Enable All</button>
-                <button onClick={() => {toggleAllFiles(false)}}>Disable All</button>
+                <Link to="/create/rifftrax"><button>New Rifftrax Clip</button></Link>
+                <Link to="/create/whatthedub"><button>New What the Dub Clip</button></Link>|
+                <button onClick={() => {toggleAllFiles(true)}}>Enable All Clips</button>
+                <button onClick={() => {toggleAllFiles(false)}}>Disable All Clips</button>
             <h4>Rifftrax</h4>
             <h5>Original Clips</h5>
             <button onClick={() => {setHideRiffTraxOriginals(!hideRiffTraxOriginals)}}>{hideRiffTraxOriginals ? "Show" : "Hide"}</button>
@@ -61,7 +63,6 @@ let VideoList = () => {
                                 <td><input type="checkbox" checked={!video.disabled} onChange={() => {toggleFile(video._id, "rifftrax", video.disabled)}} /></td>
                                 <td style={{textAlign: "left"}}>{video.name}</td>
                                 <td><Link to={`${process.env.PUBLIC_URL}/videos/rifftrax/${video._id}`}><button type="button">Open Details</button></Link></td>
-                                {video._id.startsWith("_") ? <td><button type="button" onClick={() => {deleteFile(video._id, "rifftrax")}}>Delete</button></td> : null}
                             </tr>
                         )
                     })}
@@ -93,7 +94,6 @@ let VideoList = () => {
                                 <td><input type="checkbox" checked={!video.disabled} onChange={() => {toggleFile(video._id, "whatthedub", video.disabled)}} /></td>
                                 <td style={{textAlign: "left"}}>{video.name}</td>
                                 <td><Link to={`${process.env.PUBLIC_URL}/videos/whatthedub/${video._id}`}><button type="button">Open Details</button></Link></td>
-                                {video._id.startsWith("_") ? <td><button type="button" onClick={() => {deleteFile(video._id, "rifftrax")}}>Delete</button></td> : null}
                             </tr>
                         )
                     })}
@@ -108,7 +108,7 @@ let VideoList = () => {
                                 <td><input type="checkbox" checked={!video.disabled} onChange={() => {toggleFile(video._id, "whatthedub", video.disabled)}} /></td>
                                 <td style={{textAlign: "left"}}>{video.name}</td>
                                 <td><Link to={`${process.env.PUBLIC_URL}/videos/whatthedub/${video._id}`}><button type="button">Open Details</button></Link></td>
-                                {video._id.startsWith("_") ? <td><button type="button" onClick={() => {deleteFile(video._id, "rifftrax")}}>Delete</button></td> : null}
+                                {video._id.startsWith("_") ? <td><button type="button" onClick={() => {deleteFile(video._id, "whatthedub")}}>Delete</button></td> : null}
                             </tr>
                         )
                     })}

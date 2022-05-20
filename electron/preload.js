@@ -23,6 +23,9 @@ contextBridge.exposeInMainWorld(
             } else {
                 throw `Invalid channel: ${channel}`;
             }
+        },
+        listen: (channel, listener) => {
+            ipcRenderer.on(channel, listener);
         }
     }
 );
