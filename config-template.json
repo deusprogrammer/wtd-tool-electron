@@ -1,0 +1,45 @@
+{
+    "enabled": {
+         "requests": true,
+         "raid": true
+    },
+    "videoPool": [],
+    "audioPool": [],
+    "raidConfig": {
+         "theme": "YOSHI"
+    },
+    "alertConfigs": {
+         "raidAlert": {
+              "enabled": true,
+              "type": "DYNAMIC",
+              "name": "YOSHI",
+              "id": null
+         },
+         "subAlert": {
+              "enabled": false,
+              "type": "VIDEO",
+              "name": null,
+              "id": null
+         },
+         "cheerAlert": {
+              "enabled": false,
+              "type": "VIDEO",
+              "name": null,
+              "id": null
+         },
+         "followAlert": {
+              "enabled": false,
+              "type": "VIDEO",
+              "name": null,
+              "id": null
+         }
+    },
+    "customCommands": {
+         "!fart": {
+              "type": "PLAY_SOUND",
+              "mediaId": null,
+              "coolDown": "10m"
+         }
+    },
+    "raidAlerts": []
+}
