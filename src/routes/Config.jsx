@@ -59,6 +59,7 @@ const Config = (props) => {
                     </tr>
                 </tbody>
             </table>
+            {props.onRefresh ? <button onClick={() => {props.onRefresh()}} disabled={!config.rifftraxDirectory && !config.whatTheDubDirectory}>Save</button> : null}
         </div>
     )
 }

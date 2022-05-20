@@ -72,69 +72,6 @@ const createWindow = async () => {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
-    // const template = [
-    //     {
-    //         label: 'Electron',
-    //         submenu: [
-    //             {
-    //                 label: 'About',
-    //                 click: () => {
-    //                     win.webContents.send("NAVIGATE", "/about");
-    //                     //win.loadURL(`${isDev ? 'http://localhost:3000' : REACT_APP_LOCATION}/about`);
-    //                 }
-    //             },
-    //             {
-    //                 label: 'Close',
-    //                 click: () => {
-    //                     app.quit();
-    //                 }
-    //             }
-    //         ]
-    //     },
-    //     {
-    //         label: 'Clips',
-    //         submenu: [
-    //             {
-    //                 label: 'New',
-    //                 submenu: [
-    //                     {
-    //                         label: 'Rifftrax Clip',
-    //                         click: () => {
-    //                             win.loadURL(`${isDev ? 'http://localhost:3000' : REACT_APP_LOCATION}/create/rifftrax`);
-    //                         }
-    //                     },
-    //                     {
-    //                         label: 'What The Dub Clip',
-    //                         click: () => {
-    //                             win.loadURL(`${isDev ? 'http://localhost:3000' : REACT_APP_LOCATION}/create/whatthedub`);
-    //                         }
-    //                     }
-    //                 ]
-    //             },
-    //             {
-    //                 label: 'View Clips',
-    //                 click: () => {
-    //                     win.loadURL(`${isDev ? 'http://localhost:3000' : REACT_APP_LOCATION}/videos`);
-    //                 }
-    //             }
-    //        ]
-    //     },
-    //     {
-    //         label: 'Config',
-    //         submenu: [
-    //             {
-    //                 label: 'Game Directory Setup',
-    //                 click: () => {
-    //                     win.loadURL(`${isDev ? 'http://localhost:3000' : REACT_APP_LOCATION}/config`);
-    //                 }
-    //             }
-    //         ]
-    //     }
-    // ];
-
-    // const menu = Menu.buildFromTemplate(template);
-    // Menu.setApplicationMenu(menu);
-
     // Create window
     createWindow();
 });
@@ -252,7 +189,7 @@ ipcMain.handle('deleteVideo', (event, {id, game}) => {
 });
 
 ipcMain.handle('openDialog', async () => {
-    const response = await dialog.showOpenDialog({properties: ['openFile', 'createDirectory'] });
+    const response = await dialog.showOpenDialog({properties: ['openDirectory', 'createDirectory'] });
     if (!response.canceled) {
         return response.filePaths[0];
     } else {

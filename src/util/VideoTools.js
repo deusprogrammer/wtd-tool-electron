@@ -1,6 +1,3 @@
-import {saveAs} from 'file-saver';
-import JSZip from 'jszip';
-
 function uuidv4() {
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
         var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
@@ -103,31 +100,6 @@ export let convertSubtitlesToWebVtt = (subtitles, substitution) => {
 
 export let createWebVttDataUri = (subtitles, substitution) => {
     return "data:text/vtt;base64," + btoa(convertSubtitlesToWebVtt(subtitles, substitution));
-}
-
-export let createPayloadZip = async (base64ByteStream, subtitles, title, clipNumber = 1, type) => {
-    let zip = new JSZip();
-    let folderName = "WhatTheDub_Data";
-
-    if (type === "rifftrax") {
-        folderName = "RiffTraxTheGame_Data";
-    }
-
-    let root = zip
-        .folder(folderName)
-        .folder("StreamingAssets");
-
-    let baseFileName = title ? title.replace(" ", "_") + `-Clip${`${clipNumber}`.padStart(3, "0")}` : `${uuidv4()}`;
-    
-    root
-        .folder("Subtitles")
-        .file(`${baseFileName}.srt`, convertSubtitlesToSrt(subtitles));
-    root
-        .folder("VideoClips")
-        .file(`${baseFileName}.mp4`, base64ByteStream, {base64: true});
-
-    let content = await zip.generateAsync({type:"blob"});
-    saveAs(content, baseFileName + ".zip")
 }
 
 export let addVideo = async (base64ByteStream, subtitles, title, clipNumber = 1, type) => {

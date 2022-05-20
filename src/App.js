@@ -26,14 +26,14 @@ let App = (props) => {
 
     if (!config) {
         return <div>Loading Config</div>
-    } else if (config && !config.rifftraxDirectory || !config.whatTheDubDirectory) {
+    } else if (config && !config.rifftraxDirectory && !config.whatTheDubDirectory) {
         return (
             <div className="App">
                 <h1>What the Dub Tools</h1>
                 <hr/>
                 <div>{VERSION}</div>
                 <hr/>
-                <Config />
+                <Config onRefresh={() => {getConfig()}} />
             </div>
         );
     }
