@@ -24,3 +24,15 @@ Install and run electron-packager on the root of the project.
 If you want to build for all platforms use the following.
 
     npx electron-packager . --overwrite --all
+
+## Configuring Program Directories
+
+When you first launch the app, it will ask you to configure the game directories for Rifftrax and What the Dub.  The directory you want to use is the directory that contains the StreamingAssets folder.  In a future release I will have the config page validate that the folder is correct before allowing the user to continue.
+
+## TODO
+
+* Add ability to edit existing clips.
+* Deletion of subtitles.
+* Recording of riffs for individual clips.
+
+Please feel free to request features :).
