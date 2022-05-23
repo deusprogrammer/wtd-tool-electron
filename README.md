@@ -1,5 +1,9 @@
 # WTD Tool
 
+## THIS PROJECT IS DEPRECATED
+
+Please find the new rebuilt and rebranded tool at https://github.com/deusprogrammer/dub-editor-electron
+
 ## What is WTD Tool?
 
 WTD Tool is a tool for creating clips for Rifftrax the Game and What the Dub.
